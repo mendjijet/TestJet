@@ -1,7 +1,9 @@
 pipeline{
 
     agent any
-
+environment {
+		mavenHome = tool 'maven3'
+	}
     stages {
 
         stage('Git Checkout'){
