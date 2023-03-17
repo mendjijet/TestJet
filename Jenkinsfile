@@ -1,9 +1,10 @@
 pipeline{
 
     agent any
-environment {
-		mavenHome = tool 'maven3'
-	}
+tools {
+        // Install the Maven version configured as "M3" and add it to the path.
+        maven "Maven3"
+    }
     stages {
 
         stage('Git Checkout'){
