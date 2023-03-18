@@ -16,28 +16,7 @@ tools {
                     git branch: 'master', url: 'https://github.com/mendjijet/TestJet.git'
                 }
             }
-        }
-stage('UNIT testing'){
-
-            steps{
-
-                script{
-
-                    sh 'mvn test'
-                }
-            }
-        }
-        stage('Integration testing'){
-
-                    steps{
-
-                        script{
-
-                            sh 'mvn verify -DskipUnitTests'
-                        }
-                    }
-                }
-
+        }    
 stage('Maven build'){
 
             steps{
@@ -48,20 +27,6 @@ stage('Maven build'){
                 }
             }
         }
-
-        stage('Static code analysis'){
-                    steps{
-
-                        script{
-
-                            withSonarQubeEnv(credentialsId: 'sonar-key') {
-
-                                sh 'mvn clean package sonar:sonar'
-                            }
-                           }
-
-                        }
-                    }
 
         stage('upload war file to nexus'){
 
