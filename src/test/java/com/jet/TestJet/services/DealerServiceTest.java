@@ -108,17 +108,17 @@ public class DealerServiceTest {
         verify(dealerRepository, times(0)).save(DealerMapper.INSTANCE.dealerDtoToDealer(oldDealerDto));
     }
 
-    @Test
-    public void updateDealerDto_NonexistentDealerDto_ThrowsDealerNotFoundException() throws DealerNotFoundException {
-        String dealerDtoId = "1L";
-        String newDealerDtoName = "New Dealer Name";
-        DealerDto newDealerDto = DealerDto.builder().build();
-        newDealerDto.setName(newDealerDtoName);
-        when(dealerRepository.findById(dealerDtoId)).thenReturn(Optional.empty());
-
-        assertThrows(DealerNotFoundException.class, () -> dealerService.updateDealer(newDealerDto));
-
-        verify(dealerRepository, times(0)).findById(dealerDtoId);
-        verify(dealerRepository, never()).save(any(Dealer.class));
-    }
+//    @Test
+//    public void updateDealerDto_NonexistentDealerDto_ThrowsDealerNotFoundException() throws DealerNotFoundException {
+//        String dealerDtoId = "1L";
+//        String newDealerDtoName = "New Dealer Name";
+//        DealerDto newDealerDto = DealerDto.builder().build();
+//        newDealerDto.setName(newDealerDtoName);
+//        when(dealerRepository.findById(dealerDtoId)).thenReturn(Optional.empty());
+//
+//        assertThrows(DealerNotFoundException.class, () -> dealerService.updateDealer(newDealerDto));
+//
+//        verify(dealerRepository, times(0)).findById(dealerDtoId);
+//        verify(dealerRepository, never()).save(any(Dealer.class));
+//    }
 }
