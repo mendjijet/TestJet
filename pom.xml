@@ -129,6 +129,17 @@
 						</exclude>
 					</excludes>
 				</configuration>
+				<executions>
+                <execution>
+                    <id>repackage</id>
+                    <goals>
+                        <goal>repackage</goal>
+                    </goals>
+                    <configuration>
+                        <finalName>TestJet</finalName>
+                    </configuration>
+                </execution>
+            </executions>
 			</plugin>
 		</plugins>
 	</build>
