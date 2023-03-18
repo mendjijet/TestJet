@@ -50,7 +50,6 @@ stage('Maven build'){
         }
 
         stage('Static code analysis'){
-
                     steps{
 
                         script{
@@ -64,6 +63,30 @@ stage('Maven build'){
                         }
                     }
 
+        stage('upload war file to nexus'){
+
+            steps{
+
+                script{
+                    nexusArtifactUploader artifacts: 
+                        [
+                            [
+                                artifactId: 'TestJet',
+                                classifier: '',
+                                file: 'target/TestJet.jar',
+                                type: 'jar'
+                            ]
+                        ],
+                        credentialsId: 'nexus-auth',
+                        groupId: 'com.jet',
+                        nexusUrl: 'localhost:8081',
+                        nexusVersion: 'nexus3',
+                        protocol: 'http',
+                        repository: 'testjet-release',
+                        version: '1.0.0'
+                }
+            }
+        }
         }
 
 }
