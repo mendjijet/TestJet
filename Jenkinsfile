@@ -45,7 +45,7 @@ stage('Maven build'){
                         ],
                         credentialsId: 'nexus-auth',
                         groupId: 'com.jet',
-                        nexusUrl: 'localhost:8081',
+                        nexusUrl: '172.17.0.2:8081',
                         nexusVersion: 'nexus3',
                         protocol: 'http',
                         repository: 'testjet-release',
