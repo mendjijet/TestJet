@@ -29,30 +29,16 @@ stage('Maven build'){
             }
         }
 
-        stage('upload war file to nexus'){
+        stage('Build Docker image'){
 
-            steps{
+                    steps{
 
-                script{
-                    nexusArtifactUploader artifacts: 
-                        [
-                            [
-                                artifactId: 'TestJet',
-                                classifier: '',
-                                file: 'target/TestJet.jar',
-                                type: 'jar'
-                            ]
-                        ],
-                        credentialsId: 'nexus-auth',
-                        groupId: 'com.jet',
-                        nexusUrl: '172.17.0.2:8081',
-                        nexusVersion: 'nexus3',
-                        protocol: 'http',
-                        repository: 'testjet-release',
-                        version: '1.0.0'
+                        script{
+
+                            sh 'docker build -t mendjijet/TestJet .'
+                        }
+                    }
                 }
-            }
-        }
         }
 
 }
