@@ -35,7 +35,7 @@ stage('Maven build'){
 
                         script{
 
-                            sh 'docker build -t mendjijet/TestJet .'
+                            sh 'docker build -t mendjijet/testjet .'
                         }
                     }
                 }
