@@ -44,7 +44,7 @@ stage('Maven build'){
             steps{
                 script{
                    withCredentials([string(credentialsId: 'dockerhub-pwd', variable: 'dockerhubpwd')]) {
-                   sh 'docker login -u mendjijet@gmail.com -p ${dockerhubpwd}'
+                   sh 'docker login -u mendjijet -p ${dockerhubpwd}'
 
 }
                    sh 'docker push mendjijet/testjet'
