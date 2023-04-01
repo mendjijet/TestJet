@@ -23,8 +23,8 @@ stage('Maven build'){
             steps{
 
                 script{
-
                     sh 'mvn clean install'
+                    junit 'build/reports/**/*.xml'
                 }
             }
         }
