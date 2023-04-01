@@ -25,6 +25,7 @@ stage('Maven build'){
                 script{
                     sh 'mvn clean install'
                     junit 'target/surefire-reports/*.xml'
+                     archiveArtifacts artifacts: 'target/*.jar'
                 }
             }
         }
