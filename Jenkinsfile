@@ -49,7 +49,7 @@ tools {
                                 }catch(exc){
                                 echo 'Erreur de suppression'
                                 }
-                                    sh 'docker run --name testjet -d -p 9096:9096 -e JAVA_OPTS="-Dspring.config.location=openshift/conf/prod/prod.env" mendjijet/testjet'
+                                    sh 'docker run --name testjet -d -p 9096:9096 mendjijet/testjet'
                                 }
                             }
                         }
