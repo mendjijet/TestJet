@@ -38,7 +38,22 @@ tools {
                         }
                     }
                 }
-        
+
+        stage('Run Build Docker image'){
+
+                            steps{
+
+                                script{
+                                try{
+                                sh 'docker rm -f testjet'
+                                }catch(exc){
+                                echo 'Erreur de suppression'
+                                }
+                                    sh 'docker run --name testjet -d -p 9096:9096 mendjijet/testjet'
+                                }
+                            }
+                        }
+
         stage('Push image to Hub'){
             steps{
                 script{
