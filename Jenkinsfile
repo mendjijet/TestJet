@@ -49,7 +49,7 @@ tools {
                                 }catch(exc){
                                 echo 'Erreur de suppression'
                                 }
-                                    sh 'docker run --name testjet -d -p 9096:9096 --env-file ./prod/prod.env mendjijet/testjet'
+                                    sh 'docker run --name testjet -d -p 9096:9096 --env-file ./home/enspd/prod.env mendjijet/testjet'
                                 }
                             }
                         }
