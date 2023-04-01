@@ -26,12 +26,7 @@ stage('Maven build'){
                     sh 'mvn clean install'
                 }
             }
-            post {
-                    always {
-                        archiveArtifacts artifacts: 'target/*.jar'
-                        junit 'target/surefire-reports/*.xml'
-                    }
-                }
+
         }
 
         stage('Build Docker image'){
@@ -56,6 +51,14 @@ stage('Maven build'){
                 }
             }
         }
+
+        post {
+                            always {
+                                archiveArtifacts artifacts: 'target/*.jar'
+                                junit 'target/surefire-reports/*.xml'
+                            }
+                        }
+
         }
 
 }
