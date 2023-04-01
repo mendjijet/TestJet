@@ -18,7 +18,7 @@ tools {
                 }
             }
         }
-stage('Maven build'){
+       stage('Maven build'){
 
             steps{
 
